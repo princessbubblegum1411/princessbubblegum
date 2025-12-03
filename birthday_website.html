@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Birthday</title>
+
+    <!-- Background Music -->
+    <audio autoplay loop>
+        <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_7b2302e404.mp3?filename=birthday-happy-birthday-115988.mp3" type="audio/mpeg">
+    </audio>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff9aeb, #ffd1dc);
+            font-family: "Poppins", sans-serif;
+            color: #ffffff;
+            text-align: center;
+            overflow-x: hidden;
+        }
+        h1 {
+            margin-top: 80px;
+            font-size: 3rem;
+            animation: fadeIn 2s ease-in-out;
+        }
+        p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 20px auto;
+            line-height: 1.7;
+            animation: fadeIn 3s ease-in-out;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .btn {
+            background: #ffffff;
+            color: #ff4fbd;
+            padding: 12px 25px;
+            border-radius: 30px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+            animation: fadeIn 4s ease-in-out;
+        }
+        .btn:hover {
+            background: #ffe3f7;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .balloon {
+            position: absolute;
+            width: 60px;
+            height: 80px;
+            background: #ff69c4;
+            border-radius: 50% 50% 45% 45%;
+            animation: float 6s infinite ease-in-out;
+        }
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-40px); }
+            100% { transform: translateY(0); }
+        }
+        /* Sparkle Effect */
+        .sparkle {
+            position: fixed;
+            width: 8px;
+            height: 8px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.8;
+            pointer-events: none;
+            animation: sparkleAnim 1.5s linear infinite;
+        }
+        @keyframes sparkleAnim {
+            from { transform: scale(1); opacity: 1; }
+            to { transform: scale(0); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <h1>🎉 Happy Birthday! 🎉</h1>
+    <p>
+        Wishing you the happiest birthday! You are someone truly special, someone
+        who brings magic just by being yourself. May your day be full of joy,
+        surprises, and everything your heart wishes for.
+    </p>
+
+    <div class="container">
+        <a class="btn" href="#">Click for a Surprise 🎁</a>
+    </div>
+
+    <!-- Meme Section -->
+    <div style="margin-top: 50px;">
+        <h2 style="color:#fff;">A Birthday Meme Just for You 🎉😂</h2>
+        <img src="https://i.imgflip.com/30b1gx.jpg" alt="funny birthday meme" style="width:300px; border-radius:20px; margin-top:15px;" />
+    </div>
+
+    <script>
+        function createBalloon() {
+            const balloon = document.createElement("div");
+            balloon.classList.add("balloon");
+            balloon.style.left = Math.random() * window.innerWidth + "px";
+            balloon.style.background = `hsl(${Math.random() * 360}, 80%, 70%)`;
+            balloon.style.animationDuration = (4 + Math.random() * 3) + "s";
+            document.body.appendChild(balloon);
+            setTimeout(() => balloon.remove(), 7000);
+        }
+        setInterval(createBalloon, 700);
+
+        function createSparkle() {
+            const sparkle = document.createElement("div");
+            sparkle.classList.add("sparkle");
+            sparkle.style.left = Math.random() * window.innerWidth + "px";
+            sparkle.style.top = Math.random() * window.innerHeight + "px";
+            document.body.appendChild(sparkle);
+            setTimeout(() => sparkle.remove(), 1500);
+        }
+        setInterval(createSparkle, 200);
+    </script>
+
+</body>
+</html>
